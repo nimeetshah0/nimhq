@@ -18,9 +18,24 @@ export const site = {
 
 export const socials = [
   { id: "github", label: "GitHub", handle: "@nimeetshah0", href: site.github },
-  { id: "x", label: "X", handle: "@nimeetshah", href: "https://x.com/nimeetshah" },
-  { id: "medium", label: "Medium", handle: "@nimeetshah", href: "https://medium.com/@nimeetshah" },
-  { id: "mail", label: "Email", handle: site.email, href: `mailto:${site.email}` },
+  {
+    id: "x",
+    label: "X",
+    handle: "@nimeetshah",
+    href: "https://x.com/nimeetshah",
+  },
+  {
+    id: "medium",
+    label: "Medium",
+    handle: "@nimeetshah",
+    href: "https://medium.com/@nimeetshah",
+  },
+  {
+    id: "mail",
+    label: "Email",
+    handle: site.email,
+    href: `mailto:${site.email}`,
+  },
 ] as const;
 
 export const nav = [
@@ -30,7 +45,7 @@ export const nav = [
   { label: "About", href: "#about" },
 ] as const;
 
-export type ProductStatus = "live" | "beta" | "experiment";
+export type ProductStatus = "live" | "beta";
 export type ProductLinkKind = "web" | "store" | "code";
 
 export type Product = {
@@ -93,34 +108,46 @@ export const products: Product[] = [
         href: "https://chromewebstore.google.com/detail/pepper/hbgljjmjbhehhgehoffdojjlejeahmhc",
         kind: "store",
       },
-      { label: "Source", href: "https://github.com/nimeetshah0/pepper", kind: "code" },
+      {
+        label: "Source",
+        href: "https://github.com/nimeetshah0/pepper",
+        kind: "code",
+      },
     ],
   },
   {
-    id: "minesweeper",
-    name: "Minesweeper",
-    kind: "Web game · experiment",
-    status: "experiment",
-    tagline: "The classic, rebuilt.",
+    id: "okfit",
+    name: "Okfit",
+    kind: "Web app · SaaS",
+    status: "live",
+    tagline: "Run the whole gym, not just the front desk.",
     description:
-      "A Minesweeper clone built with TypeScript and React. No install, no account — just click.",
+      "All-in-one management software for gyms, yoga and Pilates studios and CrossFit boxes — memberships, billing, class scheduling, biometric attendance and staff/member apps, with AI-generated workout and diet plans.",
     accent: "#a78bfa",
-    openSource: true,
-    links: [
-      { label: "minesweeper.nimhq.com", href: "https://minesweeper.nimhq.com", kind: "web" },
-      { label: "Source", href: "https://github.com/nimeetshah0/minesweeper", kind: "code" },
-    ],
+    openSource: false,
+    links: [{ label: "okfit.in", href: "https://okfit.in", kind: "web" }],
+  },
+];
+
+/** Side projects that aren't products — kept reachable, kept small. */
+export const playground: {
+  id: string;
+  name: string;
+  href: string;
+  note: string;
+  source?: string;
+}[] = [
+  {
+    id: "minesweeper",
+    name: "minesweeper.nimhq.com",
+    href: "https://minesweeper.nimhq.com",
+    note: "The classic, rebuilt in React + TypeScript",
+    source: "https://github.com/nimeetshah0/minesweeper",
   },
   {
     id: "media-player",
-    name: "Media Player",
-    kind: "Web app · experiment",
-    status: "experiment",
-    tagline: "A Linear-inspired media player.",
-    description:
-      "A minimal media player for the browser, with a Linear-inspired interface.",
-    accent: "#fb7185",
-    openSource: false,
-    links: [{ label: "media-player.nimhq.com", href: "https://media-player.nimhq.com", kind: "web" }],
+    name: "media-player.nimhq.com",
+    href: "https://media-player.nimhq.com",
+    note: "A bare-bones, Linear-inspired browser player",
   },
 ];
