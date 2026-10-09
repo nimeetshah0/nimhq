@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   keywords: [
     "Nimeet Shah",
     "nimhq",
+    "Podium",
     "Badgy",
     "DocTick",
     "Pepper",

@@ -11,6 +11,7 @@ const ICONS = {
 } as const;
 
 const FOCUS = [
+  { label: "Senior Software Engineer at Podium", detail: "podium.com" },
   { label: "Chrome extensions", detail: "Badgy, Pepper" },
   { label: "Google Drive / Workspace apps", detail: "DocTick" },
   { label: "Open-source tooling", detail: "Pepper, pi-subagents" },
@@ -24,9 +25,18 @@ export function About() {
         <Reveal>
           <div className="space-y-5 text-base leading-relaxed text-muted">
             <p>
-              I&apos;m <span className="text-ink">Nimeet Shah</span> — a software engineer who likes
-              turning small annoyances into sharp tools. Most of what I build starts as a thing I
-              wanted and couldn&apos;t find.
+              I&apos;m <span className="text-ink">Nimeet Shah</span> — a{" "}
+              {site.work.title.toLowerCase()} at{" "}
+              <a
+                href={site.work.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-ink underline decoration-edge-2 underline-offset-4 transition-colors hover:text-accent"
+              >
+                {site.work.company}
+              </a>
+              , and a builder who likes turning small annoyances into sharp tools. Most of what I
+              make starts as a thing I wanted and couldn&apos;t find.
             </p>
             <p>
               These days that means{" "}

@@ -59,9 +59,18 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-            Software engineer building small, sharp products. This is{" "}
-            <span className="font-mono text-ink">nimhq</span> — the headquarters for everything
-            I ship: Chrome extensions, SaaS, open source, and the occasional game.
+            {site.work.title} at{" "}
+            <a
+              href={site.work.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-ink underline decoration-edge-2 underline-offset-4 transition-colors hover:text-accent"
+            >
+              {site.work.company}
+            </a>
+            . This is <span className="font-mono text-ink">nimhq</span> — the headquarters for
+            everything I ship on the side: Chrome extensions, SaaS, open source, and the occasional
+            game.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">

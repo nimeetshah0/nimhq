@@ -1,6 +1,7 @@
 # nimhq
 
-The headquarters of Nimeet Shah — a small, fast, open-source portfolio for
+The headquarters of Nimeet Shah — a senior software engineer at
+[Podium](https://www.podium.com/) — a small, fast, open-source portfolio for
 [Badgy](https://getbadgy.com), [DocTick](https://doctick.com),
 [Pepper](https://github.com/nimeetshah0/pepper) and a shelf of experiments.
 Live at **[nimhq.com](https://nimhq.com)**.

@@ -5,7 +5,12 @@ export const site = {
   repo: "https://github.com/nimeetshah0/nimhq",
   tagline: "Tools for the people who move a little faster than the software.",
   description:
-    "nimhq is the headquarters of Nimeet Shah — a software engineer building small, sharp products: Badgy, DocTick, Pepper and a shelf of open-source experiments.",
+    "nimhq is the headquarters of Nimeet Shah — a senior software engineer at Podium building small, sharp products: Badgy, DocTick, Pepper and a shelf of open-source experiments.",
+  work: {
+    title: "Senior Software Engineer",
+    company: "Podium",
+    url: "https://www.podium.com/",
+  },
   email: "contact@nimhq.com",
   github: "https://github.com/nimeetshah0",
   githubHandle: "nimeetshah0",
