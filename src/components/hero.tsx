@@ -1,3 +1,4 @@
+import { getRepos } from "@/lib/github";
 import { products, site } from "@/lib/site";
 import { ArrowIcon, GitHubIcon, TerminalIcon } from "./icons";
 
@@ -34,7 +35,12 @@ function TerminalCard() {
   );
 }
 
-export function Hero() {
+export async function Hero() {
+  // Same `use cache` entry the Open source section reads, so this costs no
+  // extra GitHub request. Hidden when 0 so an API outage never shows a false
+  // "0 open-source repos".
+  const repos = await getRepos();
+
   return (
     <section id="top" className="relative overflow-hidden">
       <div
@@ -103,13 +109,15 @@ export function Hero() {
               <TerminalIcon className="h-3.5 w-3.5 text-accent" /> type-safe
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan" /> 3 products
-              live
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan" />{" "}
+              {products.length} products
             </span>
-            <span className="hidden items-center gap-1.5 sm:inline-flex">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet" /> open by
-              default
-            </span>
+            {repos.length > 0 ? (
+              <span className="hidden items-center gap-1.5 sm:inline-flex">
+                <span className="h-1.5 w-1.5 rounded-full bg-violet" />{" "}
+                {repos.length} open-source repos
+              </span>
+            ) : null}
           </div>
         </div>
 
