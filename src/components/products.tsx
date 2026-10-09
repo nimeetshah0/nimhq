@@ -108,61 +108,6 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
   );
 }
 
-/**
- * Spans the full width of the grid so the featured product doesn't leave an
- * orphan card on a 3-up layout. Identity sits left, prose and links right.
- */
-function FeaturedProductCard({
-  product,
-  delay,
-}: {
-  product: Product;
-  delay: number;
-}) {
-  return (
-    <Reveal delay={delay} className="h-full sm:col-span-2 lg:col-span-3">
-      <article className="group relative flex h-full flex-col gap-7 rounded-xl border border-edge bg-panel/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-edge-2 hover:bg-panel sm:p-8 md:flex-row md:items-center md:gap-12">
-        <AccentLine product={product} />
-
-        <div className="md:w-[42%]">
-          <div className="flex items-center gap-3">
-            <span
-              className="h-2.5 w-2.5 shrink-0 rounded-full"
-              style={{
-                backgroundColor: product.accent,
-                boxShadow: `0 0 12px ${product.accent}`,
-              }}
-            />
-            <h3 className="text-lg font-semibold tracking-tight text-ink sm:text-xl">
-              {product.name}
-            </h3>
-            <span
-              className={`shrink-0 rounded-full border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${STATUS_STYLES[product.status]}`}
-            >
-              {product.status}
-            </span>
-          </div>
-          <p className="mt-4 font-mono text-[11px] uppercase tracking-wider text-faint">
-            {product.kind}
-          </p>
-          <p className="mt-3 text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl">
-            {product.tagline}
-          </p>
-        </div>
-
-        <div className="flex-1 md:border-l md:border-edge md:pl-12">
-          <p className="text-sm leading-relaxed text-muted sm:text-[15px]">
-            {product.description}
-          </p>
-          <div className="mt-6">
-            <ProductLinks product={product} />
-          </div>
-        </div>
-      </article>
-    </Reveal>
-  );
-}
-
 export function Products() {
   return (
     <Section
@@ -171,18 +116,10 @@ export function Products() {
       title="Things I build and run"
       description="A small shelf of products — some commercial, some built for other people's businesses. All built and maintained by me."
     >
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product, i) =>
-          product.featured ? (
-            <FeaturedProductCard
-              key={product.id}
-              product={product}
-              delay={i * 60}
-            />
-          ) : (
-            <ProductCard key={product.id} product={product} delay={i * 60} />
-          ),
-        )}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        {products.map((product, i) => (
+          <ProductCard key={product.id} product={product} delay={i * 60} />
+        ))}
       </div>
 
       <div className="mt-6 rounded-xl border border-dashed border-edge bg-panel/30 p-5">

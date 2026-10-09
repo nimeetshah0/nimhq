@@ -1,0 +1,5 @@
+# Default owners for everything in the repository.
+#
+# Paired with "Require review from Code Owners" on `main`, this makes an
+# approval from the repo owner mandatory on every pull request.
+* @nimeetshah0

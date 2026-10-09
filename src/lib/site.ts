@@ -57,8 +57,6 @@ export type Product = {
   description: string;
   accent: string;
   openSource: boolean;
-  /** Renders as a full-width banner spanning the product grid. */
-  featured?: boolean;
   links: { label: string; href: string; kind: ProductLinkKind }[];
 };
 
@@ -127,7 +125,6 @@ export const products: Product[] = [
       "All-in-one management software for gyms, yoga and Pilates studios and CrossFit boxes — memberships, billing, class scheduling, biometric attendance and staff/member apps, with AI-generated workout and diet plans.",
     accent: "#a78bfa",
     openSource: false,
-    featured: true,
     links: [{ label: "okfit.in", href: "https://okfit.in", kind: "web" }],
   },
 ];
