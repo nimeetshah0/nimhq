@@ -25,9 +25,12 @@ export async function getPosts(): Promise<Post[]> {
     const res = await fetch(FEED, {
       headers: { "User-Agent": "Mozilla/5.0 (compatible; nimhq/1.0)" },
     });
-    if (!res.ok) return [];
+    if (!res.ok) {
+      return [];
+    }
 
     const xml = await res.text();
+
     return parseFeed(xml).slice(0, LIMIT);
   } catch {
     return [];
@@ -43,7 +46,9 @@ function parseFeed(xml: string): Post[] {
     const url = first(item, /<link>(https?:\/\/[^<]+)<\/link>/);
     const pubDate = first(item, /<pubDate>([^<]+)<\/pubDate>/);
     const content = cdata(item, "content:encoded");
-    if (!title || !url) continue;
+    if (!title || !url) {
+      continue;
+    }
 
     const body = stripHtml(content);
     posts.push({
@@ -60,13 +65,17 @@ function parseFeed(xml: string): Post[] {
 
 function first(block: string, re: RegExp): string {
   const m = block.match(re);
+
   return m?.[1] ?? "";
 }
 
 function cdata(block: string, tag: string): string {
   const re = new RegExp(`<${tag}><!\\[CDATA\\[([\\s\\S]*?)\\]\\]><\\/${tag}>`);
   const m = block.match(re);
-  if (m) return m[1];
+  if (m) {
+    return m[1];
+  }
+
   return first(block, new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`));
 }
 
@@ -80,9 +89,12 @@ function stripHtml(html: string): string {
 }
 
 function truncate(text: string, max: number): string {
-  if (text.length <= max) return text;
+  if (text.length <= max) {
+    return text;
+  }
   const cut = text.slice(0, max);
   const lastSpace = cut.lastIndexOf(" ");
+
   return `${cut.slice(0, lastSpace > 0 ? lastSpace : max).trimEnd()}…`;
 }
 

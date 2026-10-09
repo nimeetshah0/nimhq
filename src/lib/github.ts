@@ -50,19 +50,29 @@ export async function getRepos(): Promise<Repo[]> {
   const now = Date.now();
 
   try {
-    const res = await fetch(`https://api.github.com/users/${OWNER}/repos?per_page=100&sort=pushed`, {
-      headers: {
-        Accept: "application/vnd.github+json",
-        ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
+    const res = await fetch(
+      `https://api.github.com/users/${OWNER}/repos?per_page=100&sort=pushed`,
+      {
+        headers: {
+          Accept: "application/vnd.github+json",
+          ...(process.env.GITHUB_TOKEN
+            ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+            : {}),
+        },
       },
-    });
+    );
 
-    if (!res.ok) return [];
+    if (!res.ok) {
+      return [];
+    }
 
     const raw = (await res.json()) as Array<Record<string, unknown>>;
 
     const repos: Repo[] = raw
-      .filter((r) => !r.fork && !r.archived && !r.disabled && !HIDDEN.has(String(r.name)))
+      .filter(
+        (r) =>
+          !r.fork && !r.archived && !r.disabled && !HIDDEN.has(String(r.name)),
+      )
       .map((r) => ({
         name: String(r.name),
         description: (r.description as string | null) ?? null,
@@ -80,10 +90,16 @@ export async function getRepos(): Promise<Repo[]> {
         const ai = FEATURED.indexOf(a.name);
         const bi = FEATURED.indexOf(b.name);
         if (ai !== -1 || bi !== -1) {
-          if (ai === -1) return 1;
-          if (bi === -1) return -1;
+          if (ai === -1) {
+            return 1;
+          }
+          if (bi === -1) {
+            return -1;
+          }
+
           return ai - bi;
         }
+
         return b.pushedAt.localeCompare(a.pushedAt);
       })
       .slice(0, LIMIT);
@@ -118,19 +134,33 @@ const LANGUAGE_COLORS: Record<string, string> = {
 };
 
 function relativeDate(iso: string, now: number): string {
-  if (!iso) return "";
+  if (!iso) {
+    return "";
+  }
   const then = new Date(iso).getTime();
-  if (Number.isNaN(then)) return "";
+  if (Number.isNaN(then)) {
+    return "";
+  }
   const days = Math.round((now - then) / 86_400_000);
-  if (days < 1) return "today";
-  if (days < 30) return `${days}d ago`;
+  if (days < 1) {
+    return "today";
+  }
+  if (days < 30) {
+    return `${days}d ago`;
+  }
   const months = Math.round(days / 30);
-  if (months < 12) return `${months}mo ago`;
+  if (months < 12) {
+    return `${months}mo ago`;
+  }
+
   return `${Math.round(months / 12)}y ago`;
 }
 
 export function languageColor(language: string | null): string {
-  if (!language) return "var(--color-faint)";
+  if (!language) {
+    return "var(--color-faint)";
+  }
+
   return LANGUAGE_COLORS[language] ?? "var(--color-muted)";
 }
 

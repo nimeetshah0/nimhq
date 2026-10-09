@@ -18,13 +18,13 @@ or pulled live from public APIs.
 
 ## Sections
 
-| Section | Source |
-| --- | --- |
-| Hero | `src/components/hero.tsx` |
-| Products | `src/lib/site.ts` → `products[]` |
+| Section     | Source                                |
+| ----------- | ------------------------------------- |
+| Hero        | `src/components/hero.tsx`             |
+| Products    | `src/lib/site.ts` → `products[]`      |
 | Open source | GitHub REST API (`src/lib/github.ts`) |
-| Writing | Medium RSS feed (`src/lib/medium.ts`) |
-| About | `src/components/about.tsx` |
+| Writing     | Medium RSS feed (`src/lib/medium.ts`) |
+| About       | `src/components/about.tsx`            |
 
 Social share cards (Open Graph + Twitter) are generated at build time from
 `src/lib/og.tsx` via `next/og`, using the Geist fonts in `assets/fonts`. The

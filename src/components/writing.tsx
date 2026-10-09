@@ -1,13 +1,22 @@
 import { getPosts } from "@/lib/medium";
-import { Section } from "./section";
-import { Reveal } from "./reveal";
 import { ArrowUpRightIcon, MediumIcon } from "./icons";
+import { Reveal } from "./reveal";
+import { Section } from "./section";
 
 function formatDate(iso: string): string {
-  if (!iso) return "";
+  if (!iso) {
+    return "";
+  }
   const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "";
-  return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+  if (Number.isNaN(d.getTime())) {
+    return "";
+  }
+
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 }
 
 export async function Writing() {
@@ -23,7 +32,12 @@ export async function Writing() {
       {posts.length === 0 ? (
         <div className="rounded-xl border border-dashed border-edge-2 bg-panel/40 p-8 text-center font-mono text-sm text-muted">
           No posts loaded right now.{" "}
-          <a href="https://medium.com/@nimeetshah" target="_blank" rel="noreferrer" className="text-accent underline">
+          <a
+            href="https://medium.com/@nimeetshah"
+            target="_blank"
+            rel="noreferrer"
+            className="text-accent underline"
+          >
             Read on Medium →
           </a>
         </div>
@@ -42,12 +56,16 @@ export async function Writing() {
                     <h3 className="text-base font-medium text-ink transition-colors group-hover:text-accent">
                       {post.title}
                     </h3>
-                    <p className="mt-1 line-clamp-2 text-sm text-muted">{post.excerpt}</p>
+                    <p className="mt-1 line-clamp-2 text-sm text-muted">
+                      {post.excerpt}
+                    </p>
                   </div>
                   <div className="flex shrink-0 items-center gap-4 font-mono text-[11px] text-faint">
                     <span>{formatDate(post.date)}</span>
                     <span className="hidden sm:inline">·</span>
-                    <span className="hidden sm:inline">{post.readingTime} min</span>
+                    <span className="hidden sm:inline">
+                      {post.readingTime} min
+                    </span>
                     <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </div>
                 </a>

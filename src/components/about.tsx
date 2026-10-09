@@ -1,7 +1,7 @@
 import { socials, site } from "@/lib/site";
-import { Section } from "./section";
-import { Reveal } from "./reveal";
 import { GitHubIcon, MailIcon, MediumIcon, XIcon } from "./icons";
+import { Reveal } from "./reveal";
+import { Section } from "./section";
 
 const ICONS = {
   github: GitHubIcon,
@@ -35,19 +35,22 @@ export function About() {
               >
                 {site.work.company}
               </a>
-              , and a builder who likes turning small annoyances into sharp tools. Most of what I
-              make starts as a thing I wanted and couldn&apos;t find.
+              , and a builder who likes turning small annoyances into sharp
+              tools. Most of what I make starts as a thing I wanted and
+              couldn&apos;t find.
             </p>
             <p>
-              These days that means{" "}
-              <span className="text-ink">Badgy</span> for wrestling Gmail attachments,{" "}
-              <span className="text-ink">DocTick</span> for firms collecting client documents into
-              their own Google Drive, and <span className="text-ink">Pepper</span> for reading the
+              These days that means <span className="text-ink">Badgy</span> for
+              wrestling Gmail attachments,{" "}
+              <span className="text-ink">DocTick</span> for firms collecting
+              client documents into their own Google Drive, and{" "}
+              <span className="text-ink">Pepper</span> for reading the
               machine-written pull requests we all have to review now.
             </p>
             <p>
-              I&apos;m a dad, husband, engineer and physics enthusiast. I write occasionally about
-              the things I build — usually the moment I&apos;ve just figured them out.
+              I&apos;m a dad, husband, engineer and physics enthusiast. I write
+              occasionally about the things I build — usually the moment
+              I&apos;ve just figured them out.
             </p>
             <p className="font-mono text-sm text-faint">
               &quot;Languages are tools to build great products.&quot;
@@ -57,7 +60,9 @@ export function About() {
 
         <Reveal delay={120}>
           <div className="rounded-xl border border-edge bg-panel/50 p-6">
-            <h3 className="font-mono text-xs uppercase tracking-wider text-faint">Currently</h3>
+            <h3 className="font-mono text-xs uppercase tracking-wider text-faint">
+              Currently
+            </h3>
             <ul className="mt-4 space-y-4">
               {FOCUS.map((f) => (
                 <li key={f.label} className="flex items-start gap-3">
@@ -71,10 +76,13 @@ export function About() {
             </ul>
 
             <div className="mt-6 border-t border-edge pt-6">
-              <h3 className="font-mono text-xs uppercase tracking-wider text-faint">Elsewhere</h3>
+              <h3 className="font-mono text-xs uppercase tracking-wider text-faint">
+                Elsewhere
+              </h3>
               <ul className="mt-3 space-y-1.5">
                 {socials.map((s) => {
                   const Icon = ICONS[s.id as keyof typeof ICONS];
+
                   return (
                     <li key={s.id}>
                       <a
@@ -85,7 +93,9 @@ export function About() {
                       >
                         <Icon className="h-4 w-4 text-faint transition-colors group-hover:text-accent" />
                         <span className="text-sm text-ink">{s.label}</span>
-                        <span className="ml-auto font-mono text-xs text-faint">{s.handle}</span>
+                        <span className="ml-auto font-mono text-xs text-faint">
+                          {s.handle}
+                        </span>
                       </a>
                     </li>
                   );
@@ -99,7 +109,9 @@ export function About() {
       <Reveal delay={160}>
         <div className="mt-14 flex flex-col items-start justify-between gap-4 rounded-xl border border-edge-2 bg-gradient-to-r from-panel to-panel-2 p-8 sm:flex-row sm:items-center">
           <div>
-            <h3 className="text-xl font-semibold text-ink">Got something worth building?</h3>
+            <h3 className="text-xl font-semibold text-ink">
+              Got something worth building?
+            </h3>
             <p className="mt-1 text-sm text-muted">
               The fastest way to reach me is email or X. I read everything.
             </p>

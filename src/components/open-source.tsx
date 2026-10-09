@@ -1,8 +1,8 @@
 import { getRepos, languageColor, repoDisplayName } from "@/lib/github";
 import { site } from "@/lib/site";
-import { Section } from "./section";
-import { Reveal } from "./reveal";
 import { ArrowUpRightIcon, GitHubIcon, StarIcon } from "./icons";
+import { Reveal } from "./reveal";
+import { Section } from "./section";
 
 export async function OpenSource() {
   const repos = await getRepos();
@@ -17,7 +17,12 @@ export async function OpenSource() {
       {repos.length === 0 ? (
         <div className="rounded-xl border border-dashed border-edge-2 bg-panel/40 p-8 text-center font-mono text-sm text-muted">
           Couldn&apos;t reach GitHub right now.{" "}
-          <a href={site.github} target="_blank" rel="noreferrer" className="text-accent underline">
+          <a
+            href={site.github}
+            target="_blank"
+            rel="noreferrer"
+            className="text-accent underline"
+          >
             Browse the profile directly →
           </a>
         </div>
@@ -46,7 +51,10 @@ export async function OpenSource() {
                 {repo.topics.length > 0 ? (
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {repo.topics.slice(0, 3).map((t) => (
-                      <span key={t} className="rounded border border-edge px-1.5 py-0.5 font-mono text-[10px] text-faint">
+                      <span
+                        key={t}
+                        className="rounded border border-edge px-1.5 py-0.5 font-mono text-[10px] text-faint"
+                      >
                         {t}
                       </span>
                     ))}
@@ -58,7 +66,9 @@ export async function OpenSource() {
                     <span className="inline-flex items-center gap-1.5">
                       <span
                         className="h-2 w-2 rounded-full"
-                        style={{ backgroundColor: languageColor(repo.language) }}
+                        style={{
+                          backgroundColor: languageColor(repo.language),
+                        }}
                       />
                       {repo.language}
                     </span>

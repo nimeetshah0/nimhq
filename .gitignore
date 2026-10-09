@@ -40,6 +40,9 @@ yarn-error.log*
 # playwright-cli
 /.playwright-cli/
 
+# husky
+.husky/_
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -8,7 +8,9 @@ function TerminalCard() {
         <span className="h-3 w-3 rounded-full bg-rose/70" />
         <span className="h-3 w-3 rounded-full bg-amber/70" />
         <span className="h-3 w-3 rounded-full bg-accent/70" />
-        <span className="ml-2 font-mono text-xs text-faint">nimeet@nimhq — ~/products</span>
+        <span className="ml-2 font-mono text-xs text-faint">
+          nimeet@nimhq — ~/products
+        </span>
       </div>
       <div className="px-4 py-4 font-mono text-[13px] leading-7">
         <p className="text-muted">
@@ -24,7 +26,8 @@ function TerminalCard() {
           ))}
         </ul>
         <p className="mt-2 text-muted">
-          <span className="text-accent">$</span> <span className="animate-blink">▋</span>
+          <span className="text-accent">$</span>{" "}
+          <span className="animate-blink">▋</span>
         </p>
       </div>
     </div>
@@ -34,7 +37,10 @@ function TerminalCard() {
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]"
+      />
       <div
         aria-hidden
         className="glow-accent pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 animate-drift opacity-60"
@@ -68,9 +74,9 @@ export function Hero() {
             >
               {site.work.company}
             </a>
-            . This is <span className="font-mono text-ink">nimhq</span> — the headquarters for
-            everything I ship on the side: Chrome extensions, SaaS, open source, and the occasional
-            game.
+            . This is <span className="font-mono text-ink">nimhq</span> — the
+            headquarters for everything I ship on the side: Chrome extensions,
+            SaaS, open source, and the occasional game.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -97,10 +103,12 @@ export function Hero() {
               <TerminalIcon className="h-3.5 w-3.5 text-accent" /> type-safe
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan" /> 3 products live
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan" /> 3 products
+              live
             </span>
             <span className="hidden items-center gap-1.5 sm:inline-flex">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet" /> open by default
+              <span className="h-1.5 w-1.5 rounded-full bg-violet" /> open by
+              default
             </span>
           </div>
         </div>

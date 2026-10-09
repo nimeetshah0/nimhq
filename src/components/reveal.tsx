@@ -23,6 +23,7 @@ export function Reveal({
     const el = ref.current;
     if (!el || typeof IntersectionObserver === "undefined") {
       setShown(true);
+
       return;
     }
 
@@ -37,6 +38,7 @@ export function Reveal({
     );
 
     observer.observe(el);
+
     return () => observer.disconnect();
   }, []);
 

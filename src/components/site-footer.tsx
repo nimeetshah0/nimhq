@@ -1,5 +1,5 @@
-import { socials, site } from "@/lib/site";
 import { getCurrentYear } from "@/lib/build-info";
+import { socials, site } from "@/lib/site";
 import { GitHubIcon, MailIcon, MediumIcon, XIcon } from "./icons";
 
 const ICONS = {
@@ -17,12 +17,18 @@ export async function SiteFooter() {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="font-mono text-xs text-faint">
           <p>
-            <span className="text-accent">$</span> echo &quot;© {year} {site.name}
+            <span className="text-accent">$</span> echo &quot;© {year}{" "}
+            {site.name}
             &quot;
           </p>
           <p className="mt-1">
             Built with Next.js · deployed on Vercel ·{" "}
-            <a href={site.repo} target="_blank" rel="noreferrer" className="text-muted underline hover:text-accent">
+            <a
+              href={site.repo}
+              target="_blank"
+              rel="noreferrer"
+              className="text-muted underline hover:text-accent"
+            >
               this site is open source
             </a>
           </p>
@@ -31,6 +37,7 @@ export async function SiteFooter() {
         <ul className="flex flex-wrap items-center gap-2">
           {socials.map((s) => {
             const Icon = ICONS[s.id as keyof typeof ICONS];
+
             return (
               <li key={s.id}>
                 <a

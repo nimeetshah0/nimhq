@@ -8,6 +8,7 @@ import { cacheLife } from "next/cache";
 export async function getCurrentYear(): Promise<number> {
   "use cache";
   cacheLife("max");
+
   return new Date().getFullYear();
 }
 
@@ -15,5 +16,6 @@ export async function getCurrentYear(): Promise<number> {
 export async function getBuildTimestamp(): Promise<string> {
   "use cache";
   cacheLife("max");
+
   return new Date().toISOString();
 }
