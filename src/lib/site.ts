@@ -54,7 +54,7 @@ export const products: Product[] = [
     tagline: "Gmail attachments, in bulk.",
     description:
       "Download and print attachments from many Gmail emails at once — straight into an organized ZIP or your Google Drive. Runs 100% client-side.",
-    accent: "var(--color-accent)",
+    accent: "#57e68b",
     openSource: false,
     links: [
       {
@@ -73,7 +73,7 @@ export const products: Product[] = [
     tagline: "Client documents, straight to your Drive.",
     description:
       "The zero-login document checklist for accounting and professional firms. Clients upload through a magic link; files stream into your own Google Drive — no vendor cloud, no passwords.",
-    accent: "var(--color-cyan)",
+    accent: "#5cc8ff",
     openSource: false,
     links: [{ label: "doctick.com", href: "https://doctick.com", kind: "web" }],
   },
@@ -85,7 +85,7 @@ export const products: Product[] = [
     tagline: "Your companion through long PRs.",
     description:
       "Adds a categorized view to the GitHub pull-request file tree plus a keyboard-driven review story — so a 900-line AI diff reads as core changes, cosmetics, tests and generated noise.",
-    accent: "var(--color-amber)",
+    accent: "#f5c451",
     openSource: true,
     links: [
       {
@@ -104,7 +104,7 @@ export const products: Product[] = [
     tagline: "The classic, rebuilt.",
     description:
       "A Minesweeper clone built with TypeScript and React. No install, no account — just click.",
-    accent: "var(--color-violet)",
+    accent: "#a78bfa",
     openSource: true,
     links: [
       { label: "minesweeper.nimhq.com", href: "https://minesweeper.nimhq.com", kind: "web" },
@@ -119,7 +119,7 @@ export const products: Product[] = [
     tagline: "A Linear-inspired media player.",
     description:
       "A minimal media player for the browser, with a Linear-inspired interface.",
-    accent: "var(--color-rose)",
+    accent: "#fb7185",
     openSource: false,
     links: [{ label: "media-player.nimhq.com", href: "https://media-player.nimhq.com", kind: "web" }],
   },

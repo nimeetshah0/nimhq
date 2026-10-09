@@ -26,6 +26,11 @@ or pulled live from public APIs.
 | Writing | Medium RSS feed (`src/lib/medium.ts`) |
 | About | `src/components/about.tsx` |
 
+Social share cards (Open Graph + Twitter) are generated at build time from
+`src/lib/og.tsx` via `next/og`, using the Geist fonts in `assets/fonts`. The
+fonts are licensed under the SIL Open Font License — see
+[`assets/fonts/OFL.txt`](./assets/fonts/OFL.txt).
+
 The GitHub and Medium data are fetched server-side, cached with
 `use cache` + `cacheLife('hours')`, and refreshed in the background — so the
 page is served as a static shell but stays current without a redeploy.
